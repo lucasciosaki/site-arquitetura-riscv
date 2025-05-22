@@ -1,0 +1,27 @@
+.body {
+    background-color: whitesmoke;
+}
+
+#capa{
+    background-image: url("src/processador_bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* Filtro escuro com blur */
+#capa::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* escurece */
+    backdrop-filter: blur(4px);           /* aplica blur */
+    z-index: 0;                           /* fica atrás do conteúdo */
+  }
+  
+  /* Garante que o conteúdo do #capa fique acima do ::after */
+#capa > * {
+    position: relative;
+    z-index: 1;
+}
