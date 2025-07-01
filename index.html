@@ -27,28 +27,28 @@
                 <p class = "fs-5 p-0 m-0">Renato Spessoto - 14605824</p>
             </div>
         </section>
-        <section id = "intro" class = "p-3 px-5 fs-4">
+        <section id = "intro" class = " fs-4 m-0">
             
-          <section id = "definicao" class = "p-2">
+          <section id = "definicao" class = "p-5 text-center">
                
-            <h2 class = "text-center m-5">O que é um processador?</h2>
+            <h2 class = "m-5 ">O que é um processador?</h2>
             <p>O processador, também chamado de Unidade Central de Processamento (<b>CPU</b>), é como o cérebro do computador. É um chip minúsculo e superpoderoso que tem uma função principal: executar as instruções dos programas. Tudo o que você faz no computador, desde clicar com o mouse e digitar um texto até jogar um jogo com gráficos complexos ou assistir a um vídeo, passa pelo processador. Ele é o componente que "pensa" e realiza as tarefas para que tudo funcione como você espera. Sem ele, o computador seria apenas uma caixa cheia de peças paradas.</p>
             <div class = "d-flex justify-content-center">
               <img src = "src/CPU.png" width = "20%">
             </div> 
           </section>
-            <hr>
+            
 
-          <section id = "intro_arquitetura" class = "p-2">
-            <h2 class = "text-center m-5">O que é uma arquitetura?</h2>
-            <p class = "text-justify">Já vimos que o processador segue "instruções". Mas que instruções são essas? E como ele as entende? É aqui que entra o conceito de arquitetura, mais especificamente a Arquitetura de Conjunto de Instruções (ou ISA, do inglês Instruction Set Architecture).</p>
+          <section id = "intro_arquitetura" class = "p-5 bg-dark text-white text-center">
+            <h2 class = "m-5">O que é uma arquitetura?</h2>
+            <p>Já vimos que o processador segue "instruções". Mas que instruções são essas? E como ele as entende? É aqui que entra o conceito de arquitetura, mais especificamente a Arquitetura de Conjunto de Instruções (ou ISA, do inglês Instruction Set Architecture).</p>
             <p>Pense na arquitetura como o idioma que um processador "fala". Assim como existem diferentes idiomas no mundo (Português, Inglês, Japonês), existem diferentes "idiomas" de processadores. Os mais famosos são o x86 (usado nos computadores da Intel e AMD) e o ARM (usado na maioria dos celulares).</p>
             <p>A arquitetura define todo o conjunto de regras e o dicionário de instruções que o processador é capaz de entender. Ela determina quais operações ele pode fazer (soma, subtração, etc.), como ele acessa a memória e como ele se comunica com o resto do computador.</p>
             <p>O RISC-V, que vamos estudar, é uma dessas arquiteturas. A grande diferença é que ele é como um idioma de código aberto: qualquer pessoa ou empresa pode usá-lo para criar seu próprio processador sem pagar por isso. É por ser mais simples, moderno e aberto que o RISC-V é perfeito para aprender como um processador funciona por dentro.</p>
           </section>
-          <hr>
+        
           
-          <section id="funcionamento" class="container py-5">
+          <section id="funcionamento" class="container p-5">
             <h2 class="h2 fw-bold text-center mb-4">Como ele funciona?</h2>
             <p class="text-center text-muted mb-5">O funcionamento de um processador pode ser entendido como uma linha de montagem de 5 estágios. Passe o mouse sobre cada etapa do diagrama abaixo para ver o que acontece em cada uma delas.</p>
 
@@ -109,119 +109,191 @@
                 <!-- Descrição da Busca (escondido por padrão) -->
                 <div id="desc-busca" class="description-text d-none">
                     <h5 class="fw-bold text-primary">1. Busca (Fetch)</h5>
-                    <p class="mb-0">Tudo começa aqui. O processador consulta um registrador especial chamado Contador de Programa (PC), que funciona como um marcador de página, para saber o endereço da próxima instrução a ser executada. Ele vai até a Memória de Instruções, pega essa instrução e a traz para dentro de si, preparando-a para o próximo estágio. Logo em seguida, o PC já é atualizado para apontar para a instrução seguinte.</p>
+                    <p class="mb-0">Tudo começa aqui. O processador vê qual instrução ele precisa executar por meio de um registrador PC, que funciona como um marcador de página, então ele busca essa instrução na memória e começa a decodificá-la</p>
                 </div>
 
                 <!-- Descrição da Decodificação (escondido por padrão) -->
                 <div id="desc-decodificacao" class="description-text d-none">
                     <h5 class="fw-bold text-success">2. Decodificação (Decode)</h5>
-                    <p class="mb-0">Com a instrução em mãos (em formato de 0s e 1s), a Unidade de Controle a analisa para entender o que deve ser feito. Ela identifica a operação (somar, carregar um dado, etc.) e quais "ingredientes" são necessários. Esses ingredientes, chamados operandos, são geralmente buscados de um conjunto de memórias ultrarrápidas internas, o Banco de Registradores. Ao final, tudo está pronto para a ação.</p>
+                    <p class="mb-0">Com a instrução em mãos (em formato de 0s e 1s), a Unidade de Controle decodifica ela, entendendo o tipo da instrução, quais operandos ela precisa e quais partes do processador devem ser ativadas</p>
                 </div>
 
                 <!-- Descrição da Execução (escondido por padrão) -->
                 <div id="desc-execucao" class="description-text d-none">
                     <h5 class="fw-bold text-info">3. Execução (Execute)</h5>
-                    <p class="mb-0">Este é o cérebro matemático da operação. A Unidade Lógica e Aritmética (ULA) entra em cena e realiza a tarefa solicitada. Se for uma instrução de soma, a ULA soma os valores dos operandos. Se for uma operação lógica (como E ou OU), ela a executa. O resultado dessa operação é calculado aqui, pronto para ser usado nos próximos estágios do pipeline.</p>
+                    <p class="mb-0">Este é o cérebro matemático da operação. A Unidade Lógica e Aritmética (ULA) entra em cena e realiza a tarefa solicitada. Se for uma instrução de soma, a ULA soma os valores dos operandos. Se for uma operação lógica (como E ou OU), ela a executa. O resultado dessa operação é calculado aqui.</p>
                 </div>
                 
                 <!-- Descrição da Memória (escondido por padrão) -->
                 <div id="desc-memoria" class="description-text d-none">
                     <h5 class="fw-bold text-warning">4. Acesso à Memória (Memory Access)</h5>
-                    <p class="mb-0">Nem toda instrução precisa desta etapa. Ela é usada apenas quando o processador precisa se comunicar com a memória principal (RAM). Em uma instrução de `load` (carregar), ele busca um dado da memória. Em uma instrução de `store` (armazenar), ele escreve um resultado na memória. Para operações puramente aritméticas, que usam apenas registradores, este estágio é simplesmente atravessado sem que nada aconteça.</p>
+                    <p class="mb-0">Este é o estágio onde a memória é acessada se a operação for de leitura ou escrita na memória. Caso a instrução não necessite deste estágio, ele é apenas ignorado</p>
                 </div>
 
                 <!-- Descrição da Escrita (escondido por padrão) -->
                 <div id="desc-escrita" class="description-text d-none">
                     <h5 class="fw-bold text-danger">5. Escrita (Write-Back)</h5>
-                    <p class="mb-0">Finalmente, o ciclo se completa. O resultado da operação (que veio da ULA no estágio de Execução ou da Memória no estágio de Acesso à Memória) é escrito de volta em um dos registradores no Banco de Registradores. Ao fazer isso, o resultado fica disponível para que as próximas instruções possam utilizá-lo, garantindo o fluxo contínuo de processamento de dados.</p>
+                    <p class="mb-0">Finalmente, o ciclo se completa. O resultado da operação (que veio da ULA no estágio de Execução ou da Memória no estágio de Acesso à Memória) é escrito de volta em um dos registradores no Banco de Registradores. Ao fazer isso, o resultado fica disponível para que as próximas instruções possam utilizá-lo</p>
                 </div>
             </div>
         </section>
          
         </section>
        
-        <section id = "riscv" class = "bg-info p-3 px-5 fs-4" >
-            <section id = "componentes" class = "text-center p-5">
-                <h2 class = "fs-1">Componentes da Arquitetura RISC-V</h2>
-                <div id = "box-componentes" class = "container caixa">
-                    <div class="carta">
-                        <div class="imagem">
-                          <img src = "./src/PC.png"/>
-                        </div>
-                        <div class="texto d-flex justify-content-center flex-column">
-                          <h3>PC</h3>
-                          <p>
-                            Texto PC
-                          </p>
-                        </div>
-                      </div>
-                      <div class="carta">
-                        <div class="imagem">
-                          <img src = "./src/Mem_Dados.png"/>
-                        </div>
-                        <div class="texto d-flex justify-content-center flex-column">
-                          <h3>Memória de Instruções</h3>
-                          <p>
-                            Texto Memória de Instruções
-                          </p>
-                        </div>
-                      </div>
-                      <div class="carta">
-                        <div class="imagem">
-                          <img
-                            
-                          />
-                        </div>
-                        <div class="texto d-flex justify-content-center flex-column">
-                          <h3>Banco de Registradores</h3>
-                          <p>
-                            Texto Banco de Registradores
-                          </p>
-                        </div>
-                      </div>
-                      <div class="carta">
-                        <div class="imagem">
-                          <img
-                            
-                          />
-                        </div>
-                        <div class="texto d-flex justify-content-center flex-column">
-                          <h3>ULA</h3>
-                          <p>
-                            Texto ULA
-                          </p>
-                        </div>
-                      </div>
-                      <div class="carta">
-                        <div class="imagem">
-                          <img
-                            
-                          />
-                        </div>
-                        <div class="texto d-flex justify-content-center flex-column">
-                          <h3>Gerador de Numeros</h3>
-                          <p>
-                            Texto Gerador de Numeros
-                          </p>
-                        </div>
-                      </div>
-                      <div class="carta">
-                        <div class="imagem">
-                          <img
-                            
-                          />
-                        </div>
-                        <div class="texto d-flex justify-content-center flex-column">
-                          <h3>Memória de Dados</h3>
-                          <p>
-                            Texto Memória de Dados
-                          </p>
-                        </div>
-                      </div>
-                </div>
-            </section>
+        
+        <section id = "componentes" class = "bg-info fs-4 text-center p-5">
+            <h2 class = "fs-1" style="color:black">Componentes da Arquitetura RISC-V</h2>
+            <div id = "box-componentes" class = "container caixa">
+                <div class="carta">
+                    <div class="imagem">
+                      <img src = "./src/PC.png"/>
+                    </div>
+                    <div class="texto d-flex justify-content-center flex-column">
+                      
+                      <p>
+                      O PC (Program Counter) é um registrador especial que armazena o endereço de memória da próxima instrução que o processador deve executar. A cada instrução buscada, seu valor é atualizado para apontar para a instrução seguinte, garantindo que o programa seja executado na sequência correta. 
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carta">
+                    <div class="imagem">
+                      <img src = "./src/Mem_Instr.png"/>
+                    </div>
+                    <div class="texto d-flex justify-content-center flex-column">
+                      
+                      <p>
+                     A Memória de Instruções é o componente de armazenamento que guarda a sequência de todas as instruções que formam um programa. O processador lê desta memória, usando o endereço fornecido pelo PC, para buscar a operação que deve realizar a seguir.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carta">
+                    <div class="imagem">
+                      <img src = "./src/UC.png"/>
+                    </div>
+                    <div class="texto d-flex justify-content-center flex-column">
+                      
+                      <p>
+                        A Unidade de Controle (UC) é o centro de comando do processador. Ela decodifica a instrução que foi buscada da memória e, com base nisso, gera os sinais elétricos que coordenam e dirigem as ações de todos os outros componentes (como a ULA e os registradores) para executar aquela instrução específica.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carta">
+                    <div class="imagem">
+                      <img src = "./src/BcoReg.png"/>
+                    </div>
+                    <div class="texto d-flex justify-content-center flex-column">
+                      
+                      <p>
+                        O Banco de Registradores é um conjunto de pequenas unidades de armazenamento de altíssima velocidade, localizadas dentro do próprio processador. Ele serve para guardar temporariamente os dados (operandos) que estão sendo utilizados nas operações e para armazenar os resultados desses cálculos, permitindo um acesso muito mais rápido do que se fosse necessário buscar tudo na memória principal.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div class="carta">
+                    <div class="imagem">
+                      <img src = "./src/Gerador_Numeros.png"/>
+                    </div>
+                    <div class="texto d-flex justify-content-center flex-column">
+                      
+                      <p>
+                        O Gerador de Números (formalmente Gerador de Imediatos) é o componente que extrai um valor numérico constante que está embutido diretamente na própria instrução. Ele então estende esse número para o tamanho padrão do processador, preparando-o para ser usado em operações pela ULA, como em uma instrução para "somar 5" a um registrador.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carta">
+                    <div class="imagem">
+                      <img src = "./src/ULA.png"/>
+                    </div>
+                    <div class="texto d-flex justify-content-center flex-column">
+                      
+                      <p>
+                        A ULA (Unidade Lógica e Aritmética) é o componente que efetivamente executa os cálculos do processador. Ela recebe os dados (operandos) e realiza tanto as operações aritméticas (como soma e subtração) quanto as operações lógicas (como E, OU, NÃO), gerando o resultado que será utilizado nos estágios seguintes.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="carta">
+                    <div class="imagem">
+                      <img src = "./src/Mem_Dados.png"/>
+                    </div>
+                    <div class="texto d-flex justify-content-center flex-column">
+                      
+                      <p>
+                        A Memória de Dados é o principal espaço de armazenamento do sistema (geralmente a memória RAM), onde as variáveis e os dados de um programa são guardados. O processador a utiliza para ler informações que precisa para os cálculos (operação de load) e para escrever de volta os resultados que precisam ser salvos (operação de store).
+                      </p>
+                    </div>
+                  </div>
+            </div>
         </section>
+        
 
+        <section id = "arquitetura-riscv" class = "fs-4 p-5" style = "background-color: chocolate; color:#ffffff;">
+          <div class ="text-center">
+          <h2 class = "fs-1 p-4" >Arquitetura RISC-V Monociclo</h1>
+          <h3 class = "py-2">Vamos entender como todas as peças se encaixam</h3>
+          <p>Para explicar o funcionamento de um processador de arquitetura RISC-V vamos implementar um modelo simplificado, capaz de realizar operações aritméticas e acesso à memória:</p>
+          </div>
+          
+          <img src="/src/RISCV-Monociclo.png" class="img-fluid py-5">
+          <div class = "p-5">
+            <h3 class ="text-center">Já vimos na teoria o fluxo de etapas de um processador. Vamos segui-lo com a imagem como referência:</p>
+            <h3 class = "text-center">Imagine que o processador precisa executar uma instrução, como <b>"some o valor do registrador 1 com o valor do registrador 2 e guarde o resultado no registrador 3"</b>. O processo acontece da seguinte forma:</p>
+
+              <div class = "etapas bg-primary text-white m-4">
+                <h3 class = "text-center p-2">1.Etapa de Busca</h3>
+                <hr>
+                <ul>
+                  <li class = "p-1"><b>PC (Contador de Programa)</b>: Tudo começa aqui. O PC guarda o endereço da instrução que precisa ser executada. Ele envia esse endereço para a memória de instrução</li>
+                  <hr>
+                  <li class = "p-1"><b>Memória de Instruções (Mem_Instr)</b>: Este bloco recebe o endereço do PC e, como resposta, "devolve" a instrução correspondente que estava armazenada lá. Essa instrução, ainda em formato de máquina (0s e 1s), é enviada para vários lugares ao mesmo tempo, mas o mais importante agora é que ela vai para a Unidade de Controle e para o Banco de Registradores.</li>
+                </ul>
+              </div>  
+              
+              <div class = "etapas bg-success text-white m-4">
+                <h3 class = "text-center p-2 ">2. Etapa de Decodificação</h3>
+                <hr>
+                <ul>
+                  <li class = "p-1"><b>Unidade de Controle (UC)</b>: A UC, representada pela estrela rosa, recebe a instrução, a decodifica (entende o que ela quer fazer) e gera todos os sinais de controle (as setas rosas) para comandar os outros componentes. Ela vai dizer para a ULA qual conta fazer, para o Banco de Registradores se deve ler ou escrever, e para a Memória de Dados se ela será usada.</li>
+                  <hr>
+                  <li class = "p-1"><b>Banco de Registradores (Bco Reg)</b>: Este bloco recebe a instrução e identifica quais registradores ele precisa ler (no nosso exemplo, o registrador 1 e o 2). Ele então pega os valores guardados nesses registradores e os envia para a ULA.</li>
+                  <hr>
+                  <li class = "p-1"><b>Gerador de Imediatos (Gerador de Números)</b>: Se a instrução fosse "some o valor do registrador 1 com o número 5", este bloco (representado pelo pentágono cinza) seria o responsável por extrair o número "5" de dentro da instrução e enviá-lo para a ULA.</li>
+                </ul>
+              </div>  
+              
+              <div class = "etapas bg-info text-dark m-4">
+                <h3 class = "text-center p-2">3. Etapa de Execução</h3>
+                <hr>
+                <ul>
+                  <li class = "p-1"><b>ULA (Unidade Lógica e Aritmética)</b>: A ULA é a "calculadora" do processador. Ela recebe os dados do Banco de Registradores (ou do Gerador de Imediatos) e o sinal de controle da UC que diz qual operação realizar (soma, subtração, etc.). Ela executa o cálculo e produz um resultado.</li>
+                </ul>
+              </div>
+
+              <div class = "etapas bg-warning text-dark m-4">
+                <h3 class = "text-center p-2 ">4. Etapa de Acesso à Memória</h3>
+                <hr>
+                <ul>
+                  <li class = "p-1 text-left"><b>Memória de Dados (Mem_Dados)</b>: Esta etapa só é utilizada para instruções de acesso à memória.</li>
+                  <ul>
+                    <li class = "p-1 text-left">Se a instrução fosse um store (escrita), o resultado da ULA (que seria o endereço) e um dado do Banco de Registradores seriam enviados para cá, e a UC daria o comando para escrever esse dado nesse endereço.</li>
+                    <li class = "p-1 text-left">Se fosse um load (leitura), o endereço calculado pela ULA seria enviado para cá, e a UC daria o comando para ler o dado daquele endereço. O "Dado Lido" sairia deste bloco.</li>
+                  </ul>
+                </ul>
+              </div>  
+
+              <div class = "etapas bg-danger text-white m-4">
+                <h3 class = "text-center p-2">5. Etapa de Escrita</h3>
+                <hr>
+                <ul>
+                  <li class = "p-1 text-left">Finalmente, o resultado da operação precisa ser salvo. O resultado pode vir de dois lugares:</li>
+                  <ol>  
+                    <li class = "p-1 text-left">Da <b>ULA</b> (no caso de uma operação aritmética).</li>
+                    <li class = "p-1 text-left">Da <b>Memória de Dados</b> (no caso de uma operação de load).</li>
+                  </ol>
+                  <li class = "p-1 text-left">Esse resultado é enviado de volta para o Banco de Registradores. A Unidade de Controle envia um último sinal dizendo "escreva este resultado no registrador de destino" (no nosso exemplo, o registrador 3).</li>
+                </ul>
+              </div>
+
+          </div>
         </section>
 
         <footer class = "bg-dark">

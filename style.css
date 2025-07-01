@@ -89,7 +89,7 @@
 
 /* Efeito de hover no card */
 .caixa .carta:hover {
-    height: 320px; /* Altura final do card, revelando o texto */
+    height: 400px; /* Altura final do card, revelando o texto */
 }
 
 /* Container da Imagem - A PEÇA-CHAVE */
@@ -134,8 +134,10 @@
 }
 
 .caixa .carta .texto p {
+    font-size: 18px;
+    line-height: 20px;
     color: white;
-    height: 130px;
+    height: 200px;
     overflow-y: auto; /* Mantém a barra de rolagem se o texto for muito grande */
     margin: 0;
     padding-right: 5px; /* Espaço para a barra de rolagem não colar no texto */
@@ -147,4 +149,11 @@
         width: 190px;
         height: 190px;
     }
+}
+
+.etapas{
+  border-radius: 30px;
+  padding: 20px;
+  font-size: 20px;
+  text-align: left;
 }
