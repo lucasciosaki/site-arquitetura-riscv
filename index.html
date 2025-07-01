@@ -28,29 +28,116 @@
             </div>
         </section>
         <section id = "intro" class = "p-3 px-5 fs-4">
-            <section id = "definicao" class = "p-2">
-                <h2 class = "text-center m-5">O que é um processador?</h2>
-                <p class = "text-justify">  Lorem ipsum dolor sit amet. Et nulla enim eos voluptatem voluptatum in beatae porro aut earum obcaecati. Sit voluptate quasi ut reiciendis labore et minima voluptas ad dicta aperiam ea quisquam officia non consequuntur assumenda. Et repudiandae ipsa non inventore nobis et veniam harum et eaque odit ut quam esse. Est voluptatem illum est dolorem doloremque et nemo illo aut provident nihil.
-
-                    Cum velit esse et aliquid mollitia sit porro officiis. Ea sapiente assumenda ut itaque velit sit facere nobis rem aperiam nobis est sunt sunt hic maxime reprehenderit et voluptatem eveniet. Cum inventore fuga non corporis officiis vel pariatur quia est odio modi et officia velit. Et iure facilis et velit repellendus cum molestiae delectus et ipsa autem et omnis voluptas aut rerum quia aut sint harum.
-                </p>
-            </section>
+            
+          <section id = "definicao" class = "p-2">
+               
+            <h2 class = "text-center m-5">O que é um processador?</h2>
+            <p>O processador, também chamado de Unidade Central de Processamento (<b>CPU</b>), é como o cérebro do computador. É um chip minúsculo e superpoderoso que tem uma função principal: executar as instruções dos programas. Tudo o que você faz no computador, desde clicar com o mouse e digitar um texto até jogar um jogo com gráficos complexos ou assistir a um vídeo, passa pelo processador. Ele é o componente que "pensa" e realiza as tarefas para que tudo funcione como você espera. Sem ele, o computador seria apenas uma caixa cheia de peças paradas.</p>
+            <div class = "d-flex justify-content-center">
+              <img src = "src/CPU.png" width = "20%">
+            </div> 
+          </section>
             <hr>
-            <section id = "funcionamento" class = "p-2">
-                <h2 class = "text-center m-5">Como ele funciona?</h2>
-                <p class = "text-justify">  Lorem ipsum dolor sit amet. Et nulla enim eos voluptatem voluptatum in beatae porro aut earum obcaecati. Sit voluptate quasi ut reiciendis labore et minima voluptas ad dicta aperiam ea quisquam officia non consequuntur assumenda. Et repudiandae ipsa non inventore nobis et veniam harum et eaque odit ut quam esse. Est voluptatem illum est dolorem doloremque et nemo illo aut provident nihil.
 
-                    Cum velit esse et aliquid mollitia sit porro officiis. Ea sapiente assumenda ut itaque velit sit facere nobis rem aperiam nobis est sunt sunt hic maxime reprehenderit et voluptatem eveniet. Cum inventore fuga non corporis officiis vel pariatur quia est odio modi et officia velit. Et iure facilis et velit repellendus cum molestiae delectus et ipsa autem et omnis voluptas aut rerum quia aut sint harum.
-                </p>
-            </section>
-            <hr>
-            <section id = "intro_arquitetura" class = "p-2">
-                <h2 class = "text-center m-5">O que é uma arquitetura?</h2>
-                <p class = "text-justify">  Lorem ipsum dolor sit amet. Et nulla enim eos voluptatem voluptatum in beatae porro aut earum obcaecati. Sit voluptate quasi ut reiciendis labore et minima voluptas ad dicta aperiam ea quisquam officia non consequuntur assumenda. Et repudiandae ipsa non inventore nobis et veniam harum et eaque odit ut quam esse. Est voluptatem illum est dolorem doloremque et nemo illo aut provident nihil.
+          <section id = "intro_arquitetura" class = "p-2">
+            <h2 class = "text-center m-5">O que é uma arquitetura?</h2>
+            <p class = "text-justify">Já vimos que o processador segue "instruções". Mas que instruções são essas? E como ele as entende? É aqui que entra o conceito de arquitetura, mais especificamente a Arquitetura de Conjunto de Instruções (ou ISA, do inglês Instruction Set Architecture).</p>
+            <p>Pense na arquitetura como o idioma que um processador "fala". Assim como existem diferentes idiomas no mundo (Português, Inglês, Japonês), existem diferentes "idiomas" de processadores. Os mais famosos são o x86 (usado nos computadores da Intel e AMD) e o ARM (usado na maioria dos celulares).</p>
+            <p>A arquitetura define todo o conjunto de regras e o dicionário de instruções que o processador é capaz de entender. Ela determina quais operações ele pode fazer (soma, subtração, etc.), como ele acessa a memória e como ele se comunica com o resto do computador.</p>
+            <p>O RISC-V, que vamos estudar, é uma dessas arquiteturas. A grande diferença é que ele é como um idioma de código aberto: qualquer pessoa ou empresa pode usá-lo para criar seu próprio processador sem pagar por isso. É por ser mais simples, moderno e aberto que o RISC-V é perfeito para aprender como um processador funciona por dentro.</p>
+          </section>
+          <hr>
+          
+          <section id="funcionamento" class="container py-5">
+            <h2 class="h2 fw-bold text-center mb-4">Como ele funciona?</h2>
+            <p class="text-center text-muted mb-5">O funcionamento de um processador pode ser entendido como uma linha de montagem de 5 estágios. Passe o mouse sobre cada etapa do diagrama abaixo para ver o que acontece em cada uma delas.</p>
 
-                    Cum velit esse et aliquid mollitia sit porro officiis. Ea sapiente assumenda ut itaque velit sit facere nobis rem aperiam nobis est sunt sunt hic maxime reprehenderit et voluptatem eveniet. Cum inventore fuga non corporis officiis vel pariatur quia est odio modi et officia velit. Et iure facilis et velit repellendus cum molestiae delectus et ipsa autem et omnis voluptas aut rerum quia aut sint harum.
-                </p>
-            </section>
+            <div class="pipeline-container mb-4">
+                
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-center gap-2 gap-md-1 text-center">
+
+                    <!-- Etapa 1: Busca -->
+                    <div class="d-flex flex-column flex-md-row align-items-center gap-2 gap-md-1">
+                        <div class="stage-box bg-primary text-white p-3 rounded-3 shadow-sm d-flex align-items-center justify-content-center" data-target="#desc-busca">
+                            <span class="fw-semibold">Busca</span>
+                        </div>
+                        <div class="arrow-container text-muted"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg></div>
+                    </div>
+
+                    <!-- Etapa 2: Decodificação -->
+                    <div class="d-flex flex-column flex-md-row align-items-center gap-2 gap-md-1">
+                        <div class="stage-box bg-success text-white p-3 rounded-3 shadow-sm d-flex align-items-center justify-content-center" data-target="#desc-decodificacao">
+                            <span class="fw-semibold">Decodificação</span>
+                        </div>
+                        <div class="arrow-container text-muted"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg></div>
+                    </div>
+
+                    <!-- Etapa 3: Execução -->
+                    <div class="d-flex flex-column flex-md-row align-items-center gap-2 gap-md-1">
+                        <div class="stage-box bg-info text-dark p-3 rounded-3 shadow-sm d-flex align-items-center justify-content-center" data-target="#desc-execucao">
+                            <span class="fw-semibold">Execução</span>
+                        </div>
+                        <div class="arrow-container text-muted"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg></div>
+                    </div>
+
+                    <!-- Etapa 4: Acesso à Memória -->
+                    <div class="d-flex flex-column flex-md-row align-items-center gap-2 gap-md-1">
+                        <div class="stage-box bg-warning text-dark p-3 rounded-3 shadow-sm d-flex align-items-center justify-content-center" data-target="#desc-memoria">
+                            <span class="fw-semibold">Acesso à Memória</span>
+                        </div>
+                        <div class="arrow-container text-muted"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" /></svg></div>
+                    </div>
+
+                    <!-- Etapa 5: Escrita -->
+                    <div class="d-flex flex-column flex-md-row align-items-center gap-2 gap-md-1">
+                        <div class="stage-box bg-danger text-white p-3 rounded-3 shadow-sm d-flex align-items-center justify-content-center" data-target="#desc-escrita">
+                            <span class="fw-semibold">Escrita</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- ÁREA DE DESCRIÇÃO -->
+            <div class="description-area p-4 shadow-sm border col-md-8 mx-auto">
+                <!-- Texto Padrão -->
+                <div id="desc-padrao" class="description-text">
+                    <h5 class="fw-bold">O que acontece aqui?</h5>
+                    <p class="mb-0">Passe o mouse sobre uma das etapas acima para ler a descrição detalhada de cada fase do processo.</p>
+                </div>
+                
+                <!-- Descrição da Busca (escondido por padrão) -->
+                <div id="desc-busca" class="description-text d-none">
+                    <h5 class="fw-bold text-primary">1. Busca (Fetch)</h5>
+                    <p class="mb-0">Tudo começa aqui. O processador consulta um registrador especial chamado Contador de Programa (PC), que funciona como um marcador de página, para saber o endereço da próxima instrução a ser executada. Ele vai até a Memória de Instruções, pega essa instrução e a traz para dentro de si, preparando-a para o próximo estágio. Logo em seguida, o PC já é atualizado para apontar para a instrução seguinte.</p>
+                </div>
+
+                <!-- Descrição da Decodificação (escondido por padrão) -->
+                <div id="desc-decodificacao" class="description-text d-none">
+                    <h5 class="fw-bold text-success">2. Decodificação (Decode)</h5>
+                    <p class="mb-0">Com a instrução em mãos (em formato de 0s e 1s), a Unidade de Controle a analisa para entender o que deve ser feito. Ela identifica a operação (somar, carregar um dado, etc.) e quais "ingredientes" são necessários. Esses ingredientes, chamados operandos, são geralmente buscados de um conjunto de memórias ultrarrápidas internas, o Banco de Registradores. Ao final, tudo está pronto para a ação.</p>
+                </div>
+
+                <!-- Descrição da Execução (escondido por padrão) -->
+                <div id="desc-execucao" class="description-text d-none">
+                    <h5 class="fw-bold text-info">3. Execução (Execute)</h5>
+                    <p class="mb-0">Este é o cérebro matemático da operação. A Unidade Lógica e Aritmética (ULA) entra em cena e realiza a tarefa solicitada. Se for uma instrução de soma, a ULA soma os valores dos operandos. Se for uma operação lógica (como E ou OU), ela a executa. O resultado dessa operação é calculado aqui, pronto para ser usado nos próximos estágios do pipeline.</p>
+                </div>
+                
+                <!-- Descrição da Memória (escondido por padrão) -->
+                <div id="desc-memoria" class="description-text d-none">
+                    <h5 class="fw-bold text-warning">4. Acesso à Memória (Memory Access)</h5>
+                    <p class="mb-0">Nem toda instrução precisa desta etapa. Ela é usada apenas quando o processador precisa se comunicar com a memória principal (RAM). Em uma instrução de `load` (carregar), ele busca um dado da memória. Em uma instrução de `store` (armazenar), ele escreve um resultado na memória. Para operações puramente aritméticas, que usam apenas registradores, este estágio é simplesmente atravessado sem que nada aconteça.</p>
+                </div>
+
+                <!-- Descrição da Escrita (escondido por padrão) -->
+                <div id="desc-escrita" class="description-text d-none">
+                    <h5 class="fw-bold text-danger">5. Escrita (Write-Back)</h5>
+                    <p class="mb-0">Finalmente, o ciclo se completa. O resultado da operação (que veio da ULA no estágio de Execução ou da Memória no estágio de Acesso à Memória) é escrito de volta em um dos registradores no Banco de Registradores. Ao fazer isso, o resultado fica disponível para que as próximas instruções possam utilizá-lo, garantindo o fluxo contínuo de processamento de dados.</p>
+                </div>
+            </div>
+        </section>
+         
         </section>
        
         <section id = "riscv" class = "bg-info p-3 px-5 fs-4" >
@@ -59,9 +146,7 @@
                 <div id = "box-componentes" class = "container caixa">
                     <div class="carta">
                         <div class="imagem">
-                          <img
-                            
-                          />
+                          <img src = "./src/PC.png"/>
                         </div>
                         <div class="texto d-flex justify-content-center flex-column">
                           <h3>PC</h3>
@@ -72,9 +157,7 @@
                       </div>
                       <div class="carta">
                         <div class="imagem">
-                          <img
-                            
-                          />
+                          <img src = "./src/Mem_Dados.png"/>
                         </div>
                         <div class="texto d-flex justify-content-center flex-column">
                           <h3>Memória de Instruções</h3>
@@ -144,6 +227,50 @@
         <footer class = "bg-dark">
             <a href="https://www.flaticon.com/br/icones-gratis/lasca" title="lasca ícones">Lasca ícones criados por Freepik - Flaticon</a>
         </footer>
+
+        <script>
+          // Espera o documento HTML ser completamente carregado para executar o script
+          document.addEventListener('DOMContentLoaded', function () {
+              
+              // Seleciona todos os elementos que representam as etapas
+              const stages = document.querySelectorAll('.stage-box');
+              
+              // Seleciona todos os textos de descrição
+              const descriptions = document.querySelectorAll('.description-text');
+              
+              // Seleciona o container principal do diagrama
+              const pipelineContainer = document.querySelector('.pipeline-container');
+
+              // Função para mostrar a descrição correta
+              function showDescription(targetId) {
+                  // Esconde todas as descrições primeiro
+                  descriptions.forEach(desc => {
+                      desc.classList.add('d-none');
+                  });
+                  
+                  // Mostra apenas a descrição alvo
+                  const targetDescription = document.querySelector(targetId);
+                  if (targetDescription) {
+                      targetDescription.classList.remove('d-none');
+                  }
+              }
+
+              // Adiciona um listener para cada etapa do diagrama
+              stages.forEach(stage => {
+                  stage.addEventListener('mouseover', function () {
+              
+                      const targetId = this.dataset.target;
+                      showDescription(targetId);
+                  });
+              });
+
+              pipelineContainer.addEventListener('mouseleave', function () {
+                  // Mostra o texto padrão novamente
+                  showDescription('#desc-padrao');
+              });
+          });
+      </script>
+
         <!--bootstrap script-->
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"

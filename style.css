@@ -1,106 +1,150 @@
 .body {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
 }
 
 #capa{
-    background-image: url("src/processador_bg.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+  background-image: url("src/processador_bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 /* Filtro escuro com blur */
 #capa::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* escurece */
-    backdrop-filter: blur(4px);           /* aplica blur */
-    z-index: 0;                           /* fica atrás do conteúdo */
-  }
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* escurece */
+  backdrop-filter: blur(4px);           /* aplica blur */
+  z-index: 0;                           /* fica atrás do conteúdo */
+}
   
-  /* Garante que o conteúdo do #capa fique acima do ::after */
+/* Garante que o conteúdo do #capa fique acima do ::after */
 #capa > * {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
-.caixa .carta .imagem img {
-    max-width: 100%;
+.stage-box {
+    min-height: 5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer; /* Indica que o elemento é clicável/interativo */
+}
+
+/* Efeito de hover para destacar a etapa selecionada */
+.stage-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+/* A seta entre as caixas */
+.arrow-container svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Área onde o texto de descrição aparecerá */
+.description-area {
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+    min-height: 140px; /* Altura mínima para evitar que o layout "pule" */
+    transition: background-color 0.3s;
+}
+
+/* Faz a seta virar para baixo em telas pequenas */
+@media (max-width: 767.98px) {
+    .arrow-container {
+        transform: rotate(90deg);
+    }
+}
+
+/* Container geral dos cards */
+.caixa {
+    padding-top: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinha os cards verticalmente se eles tiverem alturas diferentes */
+    flex-wrap: wrap;
+    padding-bottom: 50px; /* Espaço extra no final */
+}
+
+/* O card em si - A MÁGICA COMEÇA AQUI */
+.caixa .carta {
+    position: relative; /* ESSENCIAL: Torna-se a referência para o posicionamento da imagem */
+    max-width: 300px;
+    height: 180px; /* Altura inicial do card, escondendo o texto */
+    background-color: #0d1821;
+    margin: 80px 20px 20px 20px; /* Margem superior maior para dar espaço para a imagem */
+    padding: 20px 15px;
+    display: flex;
+    /* Alinha o conteúdo (o texto) na parte de baixo do card */
+    align-items: flex-end; 
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    /* A transição suave na altura é o que cria o efeito de expansão */
+    transition: height 0.4s ease-in-out;
+}
+
+/* Efeito de hover no card */
+.caixa .carta:hover {
+    height: 320px; /* Altura final do card, revelando o texto */
+}
+
+/* Container da Imagem - A PEÇA-CHAVE */
+.caixa .carta .imagem {
+    position: absolute; /* A imagem flutua sobre o card */
+    top: -60px;       /* Puxa a imagem 60px para cima, para fora do card */
+    left: 50%;        /* Começa no meio do card */
+    transform: translateX(-50%); /* Centraliza a imagem perfeitamente na horizontal */
+    
     width: 206px;
     height: 206px;
     border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Garante que a imagem fique na frente de tudo */
 }
 
-.caixa .carta .imagem {
-  position: relative;
-  text-align: center;
-  width: 206px;
-  height: 206px;
-  top: -40%;
-  left: 5%;
-
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-@media (max-width: 380px) {
-  .caixa .carta .imagem img {
-    width: 190px;
-    height: 190px;
-  }
-  .caixa .carta .imagem {
-    align-self: center;
-    width: 190px;
-    height: 190px;
-  }
-}
-.caixa .carta {
-  max-width: 300px;
-  height: 215px;
-  background-color: #0d1821;
-  margin: 60px 20px;
-  padding: 20px 15px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
-  transition: 0.3s ease-in-out;
+/* A imagem dentro do container */
+.caixa .carta .imagem img {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
 }
 
-.caixa .carta:hover {
-  height: 320px;
-}
-
+/* Container do Texto */
 .caixa .carta .texto {
-  justify-items: center;
-  position: relative;
-  top: -140px;
-  padding: 30px 15px;
-  padding-bottom: 30px;
-  text-align: center;
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s ease-in-out;
-}
-.caixa .carta .texto p {
-  justify-items: center;
-  height: 130px;
-  overflow-y: auto;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: center;
+    
+    /* O texto começa invisível e aparece suavemente */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    transition-delay: 0.1s; /* Pequeno atraso para o texto aparecer depois da expansão */
 }
 
+/* Efeito de hover para mostrar o texto */
 .caixa .carta:hover .texto {
-  color: white;
-  margin-top: 30px;
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0.2s;
+    opacity: 1;
+    visibility: visible;
 }
 
-.caixa {
-  padding-top: 35px;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
+.caixa .carta .texto p {
+    color: white;
+    height: 130px;
+    overflow-y: auto; /* Mantém a barra de rolagem se o texto for muito grande */
+    margin: 0;
+    padding-right: 5px; /* Espaço para a barra de rolagem não colar no texto */
+}
+
+/* Media query para telas menores */
+@media (max-width: 380px) {
+    .caixa .carta .imagem {
+        width: 190px;
+        height: 190px;
+    }
 }
